@@ -1,0 +1,96 @@
+{
+    "moduleName": "agency_brand_links",
+    "entityMeta": {
+        "entityName": "Agency Brand Link",
+        "entityNameLower": "agency brand link",
+        "entityNamePlural": "Agency Brand Links",
+        "entityNamePluralLower": "agency brand links"
+    },
+    "table": {
+        "name": "agency_brand_links",
+        "viewName": "view_agency_brand_links",
+        "idField": "link_id",
+        "timestampField": "created_at"
+    },
+    "routes": {
+        "basePath": "/agencyBrandLinks",
+        "listRouteName": "agencyBrandLinks",
+        "newRouteName": "newAgencyBrandLink",
+        "editRouteName": "editAgencyBrandLink",
+        "viewRouteName": "viewAgencyBrandLink"
+    },
+    "listPage": {
+        "sorting": {
+            "field": "visit_order",
+            "sortAscending": true
+        },
+        "searchFields": [
+            "agency_id_label",
+            "brand_id_label"
+        ]
+    },
+    "fields": [
+        {
+            "name": "link_id",
+            "label": "Link ID",
+            "type": "text",
+            "required": true,
+            "readOnly": true,
+            "visibleInList": false,
+            "visibleInForm": false
+        },
+        {
+            "name": "agency_id",
+            "label": "Agency",
+            "type": "dropdown",
+            "required": true,
+            "dropdownSource": {
+                "table": "agencies",
+                "valueKey": "agency_id",
+                "labelKey": "agency_name"
+            },
+            "visibleInList": true,
+            "visibleInForm": true
+        },
+        {
+            "name": "brand_id",
+            "label": "Brand",
+            "type": "dropdown",
+            "required": true,
+            "dropdownSource": {
+                "table": "brands",
+                "valueKey": "brand_id",
+                "labelKey": "brand_name"
+            },
+            "visibleInList": true,
+            "visibleInForm": true
+        },
+        {
+            "name": "visit_order",
+            "label": "Visit Order",
+            "type": "intField",
+            "required": false,
+            "readOnly": true,
+            "visibleInList": true,
+            "visibleInForm": false
+        },
+        {
+            "name": "created_at",
+            "label": "Created At",
+            "type": "text",
+            "required": false,
+            "readOnly": true,
+            "visibleInList": false,
+            "visibleInForm": false
+        },
+        {
+            "name": "updated_at",
+            "label": "Updated At",
+            "type": "text",
+            "required": false,
+            "readOnly": true,
+            "visibleInList": false,
+            "visibleInForm": false
+        }
+    ]
+}

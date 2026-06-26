@@ -1,0 +1,196 @@
+{
+    "moduleName": "campaign",
+    "entityMeta": {
+        "entityName": "Campaign",
+        "entityNameLower": "campaign",
+        "entityNamePlural": "Campaigns",
+        "entityNamePluralLower": "campaigns"
+    },
+    "table": {
+        "name": "campaign",
+        "viewName": "view_campaigns",
+        "idField": "campaign_id",
+        "timestampField": "created_at"
+    },
+    "routes": {
+        "basePath": "/campaigns",
+        "listRouteName": "campaigns",
+        "newRouteName": "newCampaign",
+        "editRouteName": "editCampaign",
+        "viewRouteName": "viewCampaign"
+    },
+    "listPage": {
+        "sorting": {
+            "field": "created_at",
+            "sortAscending": false
+        },
+        "searchFields": [
+            "campaign_name",
+            "campaign_name_string",
+            "campaign_type",
+            "po_agency_id_label",
+            "po_brand_id_label",
+            "referrer_link_count",
+            "created_by_label",
+            "updated_by_label"
+        ]
+    },
+    "fields": [
+        {
+            "name": "campaign_id",
+            "label": "Campaign ID",
+            "type": "text",
+            "required": true,
+            "readOnly": true,
+            "visibleInList": true,
+            "visibleInForm": false
+        },
+        {
+            "name": "campaign_name",
+            "label": "Campaign Name",
+            "type": "text",
+            "required": true,
+            "availabilityCheckRpc": "check_campaign_name_availability",
+            "visibleInList": true,
+            "visibleInForm": true
+        },
+        {
+            "name": "campaign_name_string",
+            "label": "UTM String Reference",
+            "type": "text",
+            "required": false,
+            "readOnly": true,
+            "visibleInList": true,
+            "visibleInForm": false
+        },
+        {
+            "name": "campaign_type",
+            "label": "Campaign Type",
+            "type": "dropdown",
+            "required": true,
+            "visibleInList": true,
+            "visibleInForm": true,
+            "dropdownOptions": [
+                "paid_ads",
+                "influencer_collaborations",
+                "direct_brand_promotions"
+            ]
+        },
+        {
+            "name": "campaign_agency_id",
+            "label": "Agency",
+            "type": "dropdown",
+            "required": true,
+            "dropdownSource": {
+                "table": "agencies",
+                "valueKey": "agency_id",
+                "labelKey": "agency_name"
+            }
+        },
+        {
+            "name": "campaign_brand_id",
+            "label": "Brand",
+            "type": "dropdown",
+            "required": true,
+            "dropdownSource": {
+                "table": "brands",
+                "valueKey": "brand_id",
+                "labelKey": "brand_name"
+            }
+        },
+        {
+            "name": "valid_from",
+            "label": "Valid From",
+            "type": "dateTimePicker",
+            "required": true,
+            "visibleInList": true,
+            "visibleInForm": true
+        },
+        {
+            "name": "valid_until",
+            "label": "Valid Until",
+            "type": "dateTimePicker",
+            "required": true,
+            "visibleInList": true,
+            "visibleInForm": true
+        },
+        {
+            "name": "collaboration_count",
+            "label": "Collaboration Count",
+            "type": "intField",
+            "required": false,
+            "visibleInForm": false,
+            "visibleInList": false
+        },
+        {
+            "name": "referrer_link_count",
+            "label": "Referrer Link Count",
+            "type": "intField",
+            "required": false,
+            "visibleInForm": false,
+            "visibleInList": false
+        },
+        {
+            "name": "referrer_links",
+            "label": "Referrer Links",
+            "type": "textarea",
+            "required": false,
+            "visibleInList": false,
+            "visibleInForm": false
+        },
+        {
+            "name": "user_comment",
+            "label": "User Comment",
+            "type": "textarea",
+            "required": false,
+            "maxLength": 500
+        },
+        {
+            "name": "admin_comment",
+            "label": "Admin Comment",
+            "type": "textarea",
+            "required": false,
+            "maxLength": 500
+        },
+        {
+            "name": "created_by",
+            "label": "Created By",
+            "type": "dropdown",
+            "required": true,
+            "dropdownSource": {
+                "table": "users",
+                "valueKey": "user_id",
+                "labelKey": "full_name"
+            },
+            "visibleInForm": false
+        },
+        {
+            "name": "updated_by",
+            "label": "Updated By",
+            "type": "dropdown",
+            "required": true,
+            "dropdownSource": {
+                "table": "users",
+                "valueKey": "user_id",
+                "labelKey": "full_name"
+            },
+            "visibleInForm": false
+        },
+        {
+            "name": "created_at",
+            "label": "Created At",
+            "type": "text",
+            "required": false,
+            "visibleInList": false,
+            "visibleInForm": false
+        },
+        {
+            "name": "updated_at",
+            "label": "Updated At",
+            "type": "text",
+            "required": false,
+            "visibleInList": false,
+            "visibleInForm": false
+        }
+    ]
+}

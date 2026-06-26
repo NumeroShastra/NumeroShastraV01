@@ -1,0 +1,87 @@
+{
+    "moduleName": "agencies",
+    "entityMeta": {
+        "entityName": "Agency",
+        "entityNameLower": "agency",
+        "entityNamePlural": "Agencies",
+        "entityNamePluralLower": "agencies"
+    },
+    "table": {
+        "name": "agencies",
+        "viewName": "view_agencies",
+        "idField": "agency_id",
+        "timestampField": "created_at"
+    },
+    "routes": {
+        "basePath": "/agencies",
+        "listRouteName": "agencies",
+        "newRouteName": "newAgency",
+        "editRouteName": "editAgency",
+        "viewRouteName": "viewAgency"
+    },
+    "listPage": {
+        "sorting": {
+            "field": "created_at",
+            "sortAscending": true
+        },
+        "searchFields": [
+            "agency_name"
+        ]
+    },
+    "fields": [
+        {
+            "name": "agency_id",
+            "label": "Agency ID",
+            "type": "text",
+            "required": true,
+            "readOnly": true,
+            "visibleInList": false,
+            "visibleInForm": false
+        },
+        {
+            "name": "agency_name",
+            "label": "Agency Name",
+            "type": "text",
+            "required": true,
+            "maxLength": 100,
+            "availabilityCheckRpc": "check_agency_name_availability",
+            "visibleInList": true,
+            "visibleInForm": true
+        },
+        {
+            "name": "agency_note",
+            "label": "Agency Note",
+            "type": "textarea",
+            "required": false,
+            "maxLength": 500,
+            "visibleInList": false,
+            "visibleInForm": true
+        },
+        {
+            "name": "is_active",
+            "label": "Is Active",
+            "type": "switchField",
+            "required": false,
+            "visibleInList": true,
+            "visibleInForm": true
+        },
+        {
+            "name": "created_at",
+            "label": "Created At",
+            "type": "text",
+            "required": false,
+            "readOnly": true,
+            "visibleInList": false,
+            "visibleInForm": false
+        },
+        {
+            "name": "updated_at",
+            "label": "Updated At",
+            "type": "text",
+            "required": false,
+            "readOnly": true,
+            "visibleInList": false,
+            "visibleInForm": false
+        }
+    ]
+}
